@@ -5,8 +5,7 @@ int main()
 {
 	printf("Centigrade\tFahrenheit");
 	float i;
-	for(i=0.0;i<=100.0;i++)
-	{
+	for(i=0.0;i<=100.0;i++){
 		printf("\n%.2f\t%.2f\n",i,centigradeTOfahrenheit(&i));
 	}
 	system("pause");
