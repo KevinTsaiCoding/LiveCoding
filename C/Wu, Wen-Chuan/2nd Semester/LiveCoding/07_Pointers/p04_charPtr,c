@@ -1,0 +1,13 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	char *fruits[5]={"Apple","Banana","Grava","Grape","Papaya"};
+	printf("Pick a fruit by using its code.\n1.Apple\n2.Banana\n3.Grava\n4.Grape\n5.Papaya\n");
+	int choose;
+	printf("Choose code: ");
+	scanf("%d",&choose);
+	printf("Your choosen is %s\n",fruits[choose-1]);
+	system("pause");
+	return 0;
+}
