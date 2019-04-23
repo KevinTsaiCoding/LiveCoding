@@ -22,7 +22,7 @@ int main()
 		FtoC(&temperature);
 		printf("temp= %.2f\n",temperature);
 	}
-	system("pause");
+    system("pause");
     return 0;
 }
 void CtoF(float *Ptr)
