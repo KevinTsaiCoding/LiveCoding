@@ -6,7 +6,6 @@ struct Profile{
 		char gender;
 		int salary;
 };
-void showList(struct Profile student);
 void showlist_2(struct Profile *student);
 int main()
 {
