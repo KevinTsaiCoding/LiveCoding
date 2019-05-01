@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+	char str[1000];
+	printf("Input:");
+	fgets(str,1000,stdin);
+	int crypt;
+	scanf("%d",&crypt);
+	printf("Output: ");
+	int i;
+	for(i=0;str[i]!='\0';i++)
+	{
+		if(isupper(str[i]))
+			str[i]=(str[i]-'A'+crypt)%26+'A';
+		else if(islower(str[i]))
+			str[i]=(str[i]-'a'+crypt)%26+'a';
+		else
+			;
+	}
+	puts(str);
+	system("pause");
+	return EXIT_SUCCESS;
+}
