@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+}
+table,
+td {
+    border: 1px solid;
+}
+.title{
+    color: aqua;
+}
+#main-title{
+    text-decoration: underline;
+}
+#main-title:hover{
+    color: red;
+}
+a:link{
+    color: red;
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+a:active{
+    color: purple;
+}
+#box{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    padding: 20px;
+    margin: 20px auto;
+}
