@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 struct _clientData{
 	int accountNum;
 	char LastName[10];
@@ -6,22 +7,29 @@ struct _clientData{
 	float balance;
 };
 typedef struct _clientData clientData;
+
 void touch(void);
 void ls(void);
+void reset(void);
+void rm(void);
 
 int main()
 {
 	while(1)
 	{
-		puts("1. Create/Append an Account");
-		puts("2. Show an Account");
-		puts("3. Delete an Account");
-		puts("4. Exit");
+		puts("0. Reset Bank account.");
+		puts("1. Create/Append an Account.");
+		puts("2. Show an Account.");
+		puts("3. Delete an Account.");
+		puts("4. Exit.");
 		int op;
 		printf("> ");
 		scanf("%d",&op);
 		switch(op)
 		{
+			case 0:/* reset */
+				reset();
+				break;
 			case 1:/* Create account */
 				touch();
 				break;
@@ -41,4 +49,45 @@ int main()
 	end:
 	system("pause");
 	return 0;
+}
+void reset()
+{
+	clientData data={0,"","",0.0};
+	FILE *f1;
+	f1=fopen("data.txt","wb");
+	int i;
+	for(i=1;i<=100;i++)
+		fwrite(&data,sizeof(clientData),1,f1);
+	fclose(f1);
+}
+void touch()
+{
+	clientData data={0,"","",0.0};
+	FILE *f1Binary;
+	f1Binary=fopen("data.txt","wb");
+	if(f1Binary==NULL){
+		printf("No file\n");
+		exit(1);
+	}
+	else{
+		int i;
+		for(i=1;i<=100;i++)/* you now can have 100 data of the client with binary*/
+			fwrite(&data,sizeof(clientData)*1,1,f1Binary);
+		printf("Enter an account number(1 to 100, 0 to end input)\n");
+		printf("> ");
+		scanf("%d",&data.accountNum);
+		puts("Enter lastname, firstname, and your balance");
+		scanf("%s%s%lf",data.LastName,data.FirstName,&data.balance);
+		fseek(f1Binary,(data.accountNum-1/*cuz this data needs to write before it no including it*/)*sizeof(clientData),SEEK_SET);/* write data in here */
+		fwrite(&data,sizeof(clientData)*1,1,f1Binary);
+		fclose(f1Binary);
+	}
+}
+void ls(void)
+{
+	
+}
+void rm(void)
+{
+	
 }
