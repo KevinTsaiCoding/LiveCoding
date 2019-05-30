@@ -7,7 +7,6 @@ struct Profile{
 		int salary;
 };
 void showList(struct Profile student);
-void showlist_2(struct Profile *student);
 int main()
 {
 	struct Profile student;
