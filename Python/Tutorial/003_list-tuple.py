@@ -8,14 +8,17 @@ grades[0]=55
 print(grades[0])
 
 grades[1:4]=[] 
+
 """ 列表名稱[?:!]=[] 意思是把 列表中第?個位子
     到第!個位子刪除 """
 print(grades)
+
 # 有序不可動列表 Tuple (列表意思類似 C語言的陣列)
 data=(3,4,5)
 print(data)
 print('\n') # 換行
 print(data[0:2])
+
 """
 data[0]=5 錯誤: 資料不可變動
 print(data)
