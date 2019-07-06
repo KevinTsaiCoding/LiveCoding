@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#define Matrix_size 100
+int main(void){
+	int n=0,n1,n2,count=0,d=0,a1,a2=0,a3,a4=0,v1,c=0;
+	int a[Matrix_size]={0};
+	int b[Matrix_size]={0};
+	printf("輸入n:");
+	scanf("%d",&n);
+	printf("輸入d:");
+	scanf("%d",&c);
+	d=c%3;
+	srand(time(NULL));
+	for(v1=0;v1<100;v1++)
+	{
+		b[v1]=rand()%21;
+	}
+	printf("原矩陣:\n");
+	for(n1=0;n1<n;n1++)
+	{
+		for(n2=0;n2<n;n2++)
+		{
+			a[count]=count;
+			printf("%4d",b[a[count]]);
+			count+=1;
+		}
+		printf("\n");
+	}
+	a1=n*(n-1);
+	a2=n*n-1;
+	a3=n-1;
+	if(d==1)
+	{
+		printf("旋轉後:\n");
+		for(a1;a1<=a2;a1++)
+		{
+			count=a1;
+			for(n2=0;n2<n;n2++)
+			{
+				printf("%4d",b[a[count]]);
+				count-=n;
+			}
+			printf("\n");
+		}
+	}
+	else if(d==2)
+	{
+		printf("旋轉後:\n");
+		for(a2;a2>=a3;a2-=n){
+			count=a2;
+			for(n1=0;n1<n;n1++){
+				printf("%4d",b[a[count]]);
+				count-=1;
+			}
+			printf("\n");
+		}
+	}
+	else
+	{
+		printf("旋轉後:\n");
+		for(a3;a3>=a4;a3--)
+		{
+			count=a3;
+			for(n1=0;n1<n;n1++)
+			{
+				printf("%4d",b[a[count]]);
+				count+=n;
+			}
+			printf("\n");
+		}
+	}	
+}
